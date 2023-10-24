@@ -1,0 +1,4 @@
+FROM openjdk:8
+EXPOSE 8050
+ADD target/AmiraWeb-0.0.1-SNAPSHOT.jar AmiraWeb.jar
+ENTRYPOINT ["java","-jar","AmiraWeb.jar"]
