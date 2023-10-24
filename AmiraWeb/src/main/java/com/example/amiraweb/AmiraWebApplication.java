@@ -1,0 +1,15 @@
+package com.example.amiraweb;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+
+@EnableEurekaClient
+@SpringBootApplication
+public class AmiraWebApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(AmiraWebApplication.class, args);
+    }
+
+}
