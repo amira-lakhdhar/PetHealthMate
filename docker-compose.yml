@@ -1,11 +1,25 @@
-version: "3.9"
-services:
+version: "24.0.6"
+services:                           #containers
+
+
+  eureka:                           #spring.application.name=eureka
+    #container_name: lasteureka
+    build:
+      context: ./EureukaServer          # ./NomDossierProjet
+    ports:
+      - "8761:8761"                 #port container(expose dockerfile): serverport (.properties)
+    image: "lasteureka"
+    #networks:
+      #- spring-network
+
+
+
 
   userms:
-    container_name: lastuser
-    build: userms
+    #container_name: lastuser
+    build: ./userms
     ports:
-      - "8084:8084"
+      - "8084:8091"
     image: "lastuser"
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://db-mysql:3306/PET?autoReconnect=true&useSSL=false
@@ -13,13 +27,36 @@ services:
       SPRING_DATASOURCE_PASSWORD:
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
       SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
-      #EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka:8761/eureka
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://lasteureka:8761/eureka
     depends_on:
-      #- eureka
+      - eureka          #nom service dans docker-compose.yml
       - db-mysql
-      #- api-gateway
-    networks:
-      - spring-network
+      - api-gateway
+    #networks:
+      #- spring-network
+
+
+  api-gateway:
+    #container_name: apigateway
+    build:
+      context: ./Apigatway
+    ports:
+      - "8101:8100"
+    image: "apigateway"
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://lasteureka:8761/eureka/
+    depends_on:
+      - eureka
+    #networks:
+      #- spring-network
+
+
+
+
+
+
+
+
 
 
 
@@ -33,8 +70,8 @@ services:
     ports:
       - "3307:3306"
     restart: unless-stopped
-    networks:
-      - spring-network
+    #networks:
+      #- spring-network
 
-networks:
-  spring-network:
+#networks:
+  #spring-network:
