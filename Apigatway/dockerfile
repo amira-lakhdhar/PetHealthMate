@@ -1,0 +1,4 @@
+FROM openjdk:8
+EXPOSE 8100
+ADD /target/Apigatway-0.0.1-SNAPSHOT.jar Apigatway.jar
+ENTRYPOINT ["java","-jar","Apigatway.jar"]
