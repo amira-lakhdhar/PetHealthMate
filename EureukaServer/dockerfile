@@ -1,0 +1,4 @@
+FROM openjdk:8
+EXPOSE 8761
+ADD /target/EureukaServer-0.0.1-SNAPSHOT.jar EureukaServer.jar
+ENTRYPOINT ["java","-jar","EureukaServer.jar"]

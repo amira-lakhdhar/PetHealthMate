@@ -1,0 +1,40 @@
+version: "3.9"
+services:
+
+  userms:
+    container_name: lastuser
+    build: userms
+    ports:
+      - "8084:8084"
+    image: "lastuser"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db-mysql:3306/PET?autoReconnect=true&useSSL=false
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD:
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+      #EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka:8761/eureka
+    depends_on:
+      #- eureka
+      - db-mysql
+      #- api-gateway
+    networks:
+      - spring-network
+
+
+
+
+  db-mysql:
+    image: "mysql:5.6"
+    container_name: db-mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: PET
+    ports:
+      - "3307:3306"
+    restart: unless-stopped
+    networks:
+      - spring-network
+
+networks:
+  spring-network:

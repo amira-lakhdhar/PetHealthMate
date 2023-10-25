@@ -3,11 +3,15 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
+        <option value="$PROJECT_DIR$/userms/pom.xml" />
         <option value="$PROJECT_DIR$/AmiraWeb/pom.xml" />
         <option value="$PROJECT_DIR$/Apigatway/pom.xml" />
         <option value="$PROJECT_DIR$/EureukaServer/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_18" default="true" project-jdk-name="18" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11 (2)" project-jdk-type="JavaSDK" />
+  <component name="ProjectType">
+    <option name="id" value="jpab" />
+  </component>
 </project>
