@@ -15,13 +15,13 @@
     <description>userms</description>
     <properties>
         <java.version>1.8</java.version>
-      <!--  <spring-cloud.version>2021.0.8</spring-cloud.version>-->
+       <spring-cloud.version>2021.0.8</spring-cloud.version>
     </properties>
 
 
     <dependencies>
-<!--
- <dependency>
+
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
@@ -30,7 +30,7 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
--->
+
 
 
         <dependency>
@@ -181,7 +181,6 @@
         </dependency>
     </dependencies>
 
-    <!--
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -192,7 +191,7 @@
                 <scope>import</scope>
             </dependency>
         </dependencies>
-    </dependencyManagement>-->
+    </dependencyManagement>
 
     <build>
         <plugins>
@@ -209,6 +208,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>spring-boot-docker</finalName>
     </build>
 
 </project>

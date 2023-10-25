@@ -1,4 +1,0 @@
-FROM openjdk:8
-EXPOSE 8084
-ADD /target/userms-0.0.1-SNAPSHOT.jar userms.jar
-ENTRYPOINT ["java", "-jar","userms.jar"]
